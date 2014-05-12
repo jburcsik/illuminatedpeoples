@@ -1,0 +1,308 @@
+/* Styles for OTH Essentials LP */
+
+html{
+	height:100%;
+}
+body{
+	height:100%;
+	margin:0;
+	font-family:Helvetica, Arial, Sans-serif;
+	color:#a8a8a8;
+}
+a{
+	outline: none;
+
+	img{
+		border:none;
+	}
+}
+
+#wrapper{
+	height:auto;
+	min-height:100%;
+	margin:0 auto -200px;
+}
+.title-img{
+	padding:0 0 0 20px;
+}
+
+/* Header styles */
+.header{
+	position:relative;
+
+	text-align:center;
+	background:#1cbcd8 url("../img/oth-student-essentials-header.jpg") no-repeat center center;
+	min-height:50px;
+
+	.close-strip{
+		position:absolute;
+		top:0;
+		left:0;
+	}
+
+	.jagged{
+		position:absolute;
+		bottom:0;
+		right:0;
+		left:0;
+
+		height:21px;
+		background:url("../img/triangle-pattern.png") repeat-x;
+	}
+}
+
+/* Info styles */
+.info{
+	width:650px;
+
+	margin:0 auto;
+	padding:0 0 20px;
+
+	background:url("../img/photos.jpg") no-repeat bottom right;
+
+	h2{
+		margin:30px 0 80px;
+		
+		font-weight:normal;
+		font-size:56px;
+		text-align: center;
+		color:#1cbcd8;
+	}
+
+	.steps{
+		padding:10px 0 0;
+		width:400px;
+
+		.step{
+			padding:20px 0 30px;
+			background:url("../img/zigzag.png") no-repeat bottom left;
+
+			img{
+				vertical-align: middle;
+			}
+
+			span{
+				font-size:14px;
+				vertical-align: middle;
+				padding:0 0 0 20px;
+				display:inline-block;
+
+				width:300px;
+			}
+		}
+	}
+}
+
+/* Prize styles */
+.prize{
+	width:650px;
+	height:250px;
+
+	margin:30px auto 35px;
+	position:relative;
+
+	background:url("../img/prize-short-arrow.jpg") no-repeat top center;
+
+	.description{
+		font-size:14px;
+
+		position:absolute;
+		bottom:20px;
+		right:20px;
+
+		width:230px;
+	}
+}
+
+/* Sub-header styles */
+.sub-header{
+	width:750px;
+
+	position:relative;
+	margin:0 auto 30px;
+
+	.top-bar{
+		margin:0 0 15px;
+
+		.socials{
+			padding:0 0 0 5px;
+
+			a{
+				vertical-align:middle;
+			}
+			img{
+				vertical-align:middle;
+			}
+		}
+
+		.details{
+			position:absolute;
+			right:0;
+			top:2px;
+
+			font-size:13px;
+
+			span{
+				padding:0 15px;
+			}
+			a{
+				color:#2ac0db;
+			}
+		}
+	}
+	.banner{
+		padding:20px 0;
+
+		text-align:center;
+		background:#f4f4f4;
+	}
+}
+
+/* Image feed styles */
+.img-feed{
+	text-align:center;
+	width:800px;
+	margin:0 auto 30px;
+
+	.entry{
+		position:relative;
+		padding:7px 7px 0;
+		margin:8px;
+		display:inline-block;
+		zoom: 1;
+		*display: inline;
+
+		width:120px;
+		height:175px;
+
+		font-size:11px;
+		text-align: center;
+		vertical-align: top;
+		border:1px solid #DFDFDF;
+		-moz-box-shadow:-1px 3px 3px 0 #BBBBBB;
+		-webkit-box-shadow:-1px 3px 3px 0 #BBBBBB;
+		box-shadow:-1px 3px 3px 0 #BBBBBB;
+
+		img{
+			padding-top:10px;
+		}
+		.title{
+			text-align:left;
+
+			span{
+				width:100px;
+				display:inline-block;
+
+				overflow:hidden;
+				vertical-align:middle;
+			}
+			img{
+				vertical-align:middle;
+				padding:0 5px 0 0;
+			}
+		}
+		.meta{
+			text-align:right;
+
+			position:absolute;
+			left:7px;
+			right:7px;
+			bottom:7px;
+			
+			span{
+				vertical-align:middle;
+			}
+			img{
+				vertical-align:middle;
+				padding:0 0 0 5px;
+			}
+		}
+	}
+	.fancy-img{
+		position:absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+
+		background:#FFF;
+		-moz-opacity: 0.00;
+		opacity:0.00;
+		filter: alpha(opacity=0);
+
+		z-index:5;
+
+		&:hover{
+			-moz-opacity: 0.70;
+			opacity:0.70;
+			filter: alpha(opacity=70);
+			background:#555555 url("../img/magnify.png") no-repeat center center;
+		}
+	}
+	.img-vert{
+		height:120px;
+	}
+	.img-hor{
+		width:120px;
+	}
+}
+
+/* More bar */
+.more{
+	margin:0 auto 20px;
+	width:750px;
+
+	.bar{
+		border-top:1px solid;
+		padding:10px 0;
+
+		text-align:center;
+		color:#FFFFFF;
+		background:#3f3f3f;
+		cursor:pointer;
+	}
+	.triangle{
+		width: 0;
+		height: 0;
+		
+		margin:0 auto;
+
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		border-top: 15px solid #3f3f3f;
+		cursor:pointer;
+	}
+}
+
+.spacer{
+	height:200px;
+}
+
+/* Congratulations section */
+.congratulations{
+	padding:20px 0 30px;
+	text-align:center;
+
+	.winner-card{
+		padding:15px 15px 20px;
+		margin:30px auto 0;
+		width:260px;
+		
+		border:1px solid #DFDFDF;
+		-moz-box-shadow:-1px 4px 4px 0 #BBBBBB;
+		-webkit-box-shadow:-1px 4px 4px 0 #BBBBBB;
+		box-shadow:-1px 4px 4px 0 #BBBBBB;
+
+		img{
+			margin:0 0 20px;
+		}
+
+		.name{
+			margin:15px 0 0;
+			padding: 0 0 0 30px;
+			color:#747474;
+			font-size:18px;
+			background: url("../img/insta-lg.png") no-repeat left center;
+		}
+	}
+}

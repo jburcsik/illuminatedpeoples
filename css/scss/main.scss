@@ -1,0 +1,53 @@
+@import "settings";
+// @import "foundation";
+
+// Or selectively include components
+@import
+   "foundation/components/block-grid",
+   "foundation/components/grid",
+   "foundation/components/type";
+   // Notice there is no comma on the last line
+
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switch",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+
+
+// --------------------------------------
+//
+//	Illuminated Peoples Styles
+//
+// ---------------------------------------
+
+body{
+	background-color: #333;
+	color: #fff;
+}
+
+#head{
+	padding-top: 20px;
+}
+
+#comingSoon{
+	padding: 20px 0;
+}
+
