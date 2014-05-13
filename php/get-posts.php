@@ -4,20 +4,20 @@
 session_start();
 require_once('twitteroauth/twitteroauth/twitteroauth.php'); //Path to twitteroauth library
  
-$twitteruser = "onthehub";
-$consumerkey = "KHVpOloQVYWrbklqpiovw";
-$consumersecret = "qrcijsWFZ4Mmq9OaoPcsA18ehlxWDmCXkk3WZhnCPaw";
-$accesstoken = "22485144-EzvBgn6QN3Iqxud1KjPpTtCGrJNYC39hyQPxHVd8S";
-$accesstokensecret = "QEWAYZuc9lBK71YpqFwUe8r4IU9fHXirdFMBNyBtf0";
+$twitteruser = "jesseburcsik";
+$consumerkey = "jBKXukPjoZE1rAPUoqFE5oUCV";
+$consumersecret = "NJN2GuxxU71cae4R4jK93emjTKGbUKgOhLmJPGBbscHU7uV0e2";
+$accesstoken = "14063616-Ujq1sv8yK2PZPrg0eDmUt9E4vkQto06cyop26AylL";
+$accesstokensecret = "XFB5PxurJbyaKyKdOeP9PqM6c3C9YEn1aZFuBjjLiUSoM";
   
 $connection = new TwitterOAuth($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
  
-$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=%23othessentials&count=100&result_type=recent");
+$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=%23picture&count=100&result_type=recent");
 
 
 // Gets relevant Instagram photos
-$searchTag = "othessentials";
-$clientId = "14c79c12d0274e679e30df69558e67f4";
+$searchTag = "picture";
+$clientId = "69ac1274ef9e4ee7967a6626438b1eee";
 
 $baseUrl = "https://api.instagram.com/v1";
 $queryPath = "/tags/$searchTag/media/recent";
@@ -39,8 +39,8 @@ for ($i = 0; $i < count($tweets->statuses); $i++){
 $results[0] = $imgTweets;
 $results[1] = json_decode($instaResponse);
 
-$path = "../js/results.json";
-$backup = "../js/archive.json";
+$path = "../js/results_c.json";
+$backup = "../js/archive_c.json";
 
 // If file exists, read and add to array - otherwise, write to new file
 if (file_exists($path)){
@@ -178,15 +178,15 @@ if (file_exists($path)){
 	$instaCount = 0;
 
 	if (isset($current[0]->statuses)){
-		echo "Last tweet: " . $current[0]->statuses[0]->id . " First tweet: " . $current[0]->statuses[count($current[0]->statuses) - 1]->id . "<br />";
+		echo "Last tweet: " . $current[0]->statuses[0]->id . " First tweet: " . $current[0]->statuses[count($current[0]->statuses) - 1]->id . "<br />\n";
 		$tweetCount = count($current[0]->statuses);
 	}
 	if (isset($current[1]->data)){
-		echo "Last insta: " . substr($current[1]->data[0]->id, 0, strpos($current[1]->data[0]->id, "_")) . " First insta: " . substr($current[1]->data[count($current[1]->data) - 1]->id, 0, strpos($current[1]->data[count($current[1]->data) - 1]->id, "_")) . "<br />";
+		echo "Last insta: " . substr($current[1]->data[0]->id, 0, strpos($current[1]->data[0]->id, "_")) . " First insta: " . substr($current[1]->data[count($current[1]->data) - 1]->id, 0, strpos($current[1]->data[count($current[1]->data) - 1]->id, "_")) . "<br />\n";
 		$instaCount = count($current[1]->data);
 	}
 
-	echo "Instas: " . $instaCount . ", Tweets: " . $tweetCount;
+	echo "Instas: " . $instaCount . ", Tweets: " . $tweetCount . '\n';
 
 	file_put_contents($path, json_encode($current));
 }

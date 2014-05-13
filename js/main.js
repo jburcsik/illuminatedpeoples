@@ -12,10 +12,13 @@ $(document).ready(function(){
     });
 
     // Fetching currently cached Tweets/Instas
-    $.getJSON("js/results.json", function(data){
+    $.getJSON("js/results_c.json", function(data){
 
         var tweets = data[0];
         var instas = data[1];
+
+        console.log(tweets.data);
+        console.log(instas.data);
 
         if (tweets.statuses != null){
             // Add Twitter posts to array
