@@ -1,0 +1,9 @@
+var imgList;
+
+$.getJSON("js/results_c.json", function(data){
+	imgList = data;
+});
+
+$.getJSON("js/results_h.json", function(data){
+	imgList = data;
+});

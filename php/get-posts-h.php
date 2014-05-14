@@ -12,11 +12,11 @@ $accesstokensecret = "XFB5PxurJbyaKyKdOeP9PqM6c3C9YEn1aZFuBjjLiUSoM";
   
 $connection = new TwitterOAuth($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
  
-$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=%23picture&count=100&result_type=recent");
+$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=%23blue&count=100&result_type=recent");
 
 
 // Gets relevant Instagram photos
-$searchTag = "picture";
+$searchTag = "blue";
 $clientId = "69ac1274ef9e4ee7967a6626438b1eee";
 
 $baseUrl = "https://api.instagram.com/v1";
@@ -39,8 +39,8 @@ for ($i = 0; $i < count($tweets->statuses); $i++){
 $results[0] = $imgTweets;
 $results[1] = json_decode($instaResponse);
 
-$path = "../js/results_c.json";
-$backup = "../js/archive_c.json";
+$path = "../js/results_h.json";
+$backup = "../js/archive_h.json";
 
 // If file exists, read and add to array - otherwise, write to new file
 if (file_exists($path)){
@@ -178,15 +178,15 @@ if (file_exists($path)){
 	$instaCount = 0;
 
 	if (isset($current[0]->statuses)){
-		echo "Last tweet: " . $current[0]->statuses[0]->id . " First tweet: " . $current[0]->statuses[count($current[0]->statuses) - 1]->id . "<br />\n";
+		echo "Last tweet: " . $current[0]->statuses[0]->id . " First tweet: " . $current[0]->statuses[count($current[0]->statuses) - 1]->id . "<br />";
 		$tweetCount = count($current[0]->statuses);
 	}
 	if (isset($current[1]->data)){
-		echo "Last insta: " . substr($current[1]->data[0]->id, 0, strpos($current[1]->data[0]->id, "_")) . " First insta: " . substr($current[1]->data[count($current[1]->data) - 1]->id, 0, strpos($current[1]->data[count($current[1]->data) - 1]->id, "_")) . "<br />\n";
+		echo "Last insta: " . substr($current[1]->data[0]->id, 0, strpos($current[1]->data[0]->id, "_")) . " First insta: " . substr($current[1]->data[count($current[1]->data) - 1]->id, 0, strpos($current[1]->data[count($current[1]->data) - 1]->id, "_")) . "<br />";
 		$instaCount = count($current[1]->data);
 	}
 
-	echo "Instas: " . $instaCount . ", Tweets: " . $tweetCount . '\n';
+	echo "Instas: " . $instaCount . ", Tweets: " . $tweetCount;
 
 	file_put_contents($path, json_encode($current));
 }

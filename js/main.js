@@ -1,5 +1,7 @@
 var currImg = 0;
 var imgList = Array();
+var characters = new Array('c','h'/*,'i','n','a','t','o','w','n2'*/);
+var chrs;
 
 $(document).ready(function(){
 
@@ -11,61 +13,90 @@ $(document).ready(function(){
         cache: false
     });
 
-    // Fetching currently cached Tweets/Instas
-    $.getJSON("js/results_c.json", function(data){
+    //console.log('HELLO ***');
+    //var window.characters = new Array('c','h'/*,'i','n','a','t','o','w','n2'*/);
 
-        var tweets = data[0];
-        var instas = data[1];
+    for (chrs = 0; chrs < characters.length; chrs++){
+        console.log(characters);
+        console.log(characters[chrs]);
+        console.log('* Currently doing it for the letter' + characters[chrs]);
 
-        console.log(tweets.data);
-        console.log(instas.data);
+        // Fetching currently cached Tweets/Instas
+        //var currFile = "js/results_+"characters[chrs]+".json";
+        $.getJSON("js/results_"+characters[chrs]+".json", function(data){
 
-        if (tweets.statuses != null){
-            // Add Twitter posts to array
-            for (var i = 0; i < tweets.statuses.length; i++){
-                if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
-                    var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
+            var tweets = data[0];
+            var instas = data[1];
 
+            console.log(tweets.data);
+            console.log(instas.data);
+
+            if (tweets.statuses != null){
+                // Add Twitter posts to array
+                for (var i = 0; i < tweets.statuses.length; i++){
+                    if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
+                        var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
+
+                        imgList[imgList.length] = {
+                            postType: "Twitter",
+                            user: tweets.statuses[i].user.screen_name,
+                            imgSource: tweets.statuses[i].entities.media[0].media_url,
+                            favourites: tweets.statuses[i].favorite_count,
+                            imgW: tweets.statuses[i].entities.media[0].sizes.large.w,
+                            imgH: tweets.statuses[i].entities.media[0].sizes.large.h,
+                            message: tweets.statuses[i].text,
+                            created: tweetTime
+                        };
+                    }
+                }
+            }
+
+            if (instas.data != null){
+                // Add Instagram posts to array
+                for (var i = 0; i < instas.data.length; i++){
                     imgList[imgList.length] = {
-                        postType: "Twitter",
-                        user: tweets.statuses[i].user.screen_name,
-                        imgSource: tweets.statuses[i].entities.media[0].media_url,
-                        favourites: tweets.statuses[i].favorite_count,
-                        imgW: tweets.statuses[i].entities.media[0].sizes.large.w,
-                        imgH: tweets.statuses[i].entities.media[0].sizes.large.h,
-                        message: tweets.statuses[i].text,
-                        created: tweetTime
+                        postType: "Instagram",
+                        user: instas.data[i].user.username,
+                        imgSource: instas.data[i].images.standard_resolution.url,
+                        likes: instas.data[i].likes.count,
+                        imgW: instas.data[i].images.standard_resolution.width,
+                        imgH: instas.data[i].images.standard_resolution.height,
+                        message: instas.data[i].caption !== null ? instas.data[i].caption.text : "",
+                        created: instas.data[i].created_time
                     };
                 }
             }
-        }
 
-        if (instas.data != null){
-            // Add Instagram posts to array
-            for (var i = 0; i < instas.data.length; i++){
-                imgList[imgList.length] = {
-                    postType: "Instagram",
-                    user: instas.data[i].user.username,
-                    imgSource: instas.data[i].images.standard_resolution.url,
-                    likes: instas.data[i].likes.count,
-                    imgW: instas.data[i].images.standard_resolution.width,
-                    imgH: instas.data[i].images.standard_resolution.height,
-                    message: instas.data[i].caption !== null ? instas.data[i].caption.text : "",
-                    created: instas.data[i].created_time
-                };
-            }
-        }
+            imgList.sort(timeSort);
 
-        imgList.sort(timeSort);
+            // Output images from array items
+            
 
-        // Output images from array items
-        writeImg(imgList);
+            // Prepare More bar for click
+            $(".more").children().on("click", writeImg);
+        });
+    }
+    chrs--;
 
-        // Prepare More bar for click
-        $(".more").children().on("click", writeImg);
-    });
+
 });
+// End for loop
 
+function doSomething() {
+    // RRemove Whats in there and load another
+    var currImgSelector = ".img-feed-" + characters[chrs];
+    console.log('* Inside of doSomething: ' + currImgSelector);
+    $(currImgSelector).html('');
+    writeImg(imgList);
+}
+
+(function loop() {
+    var rand = Math.round(Math.random() * (10000 - 1000)) + 1000;
+    setTimeout(function() {
+            doSomething();
+            loop();  
+    }, rand);
+}());
 
 // Sorts image array based on time created
 function timeSort(a, b){
@@ -84,10 +115,11 @@ function htmlEntities(str) {
 }
 
 // Outputs images into preview cards
-function writeImg(){
+function writeImg(imgList, currChar){
     var offset = currImg;
 
-    for (var k = 0; k + offset < imgList.length && k < 20; k++){
+    var k = Math.floor((Math.random() * imgList.length));
+    console.log('** The COunter is: ' + k);
         var imgClass = "";
         var titleTxt = "";
         var metaTxt = "";
@@ -96,12 +128,12 @@ function writeImg(){
 
         // Changing contents based on post type
         if (imgList[i].postType === "Twitter"){
-            titleTxt = "<div class='title'><img src='img/tweet.png' alt='' /><span>" + htmlEntities(imgList[i].user) + "</span></div>";
-            metaTxt = "<div class='meta'><span>" + imgList[i].favourites + "</span><img src='img/favourite.png' alt='favourites' /></div>";
+            titleTxt = "<div class='title'><span>" + htmlEntities(imgList[i].user) + "</span></div>";
+            metaTxt = "";
         }
         else if (imgList[i].postType === "Instagram"){
-            titleTxt = "<div class='title'><img src='img/insta.png' alt='' /><span>" + htmlEntities(imgList[i].user) + "</span></div>";
-            metaTxt = "<div class='meta'><span>" + imgList[i].likes + "</span><img src='img/like.png' alt='likes' /></div>";
+            titleTxt = "<div class='title'><span>" + htmlEntities(imgList[i].user) + "</span></div>";
+            metaTxt = "";
         }
         else{
             titleTxt = "<div>" + htmlEntities(imgList[i].user) + "</div>";
@@ -118,9 +150,9 @@ function writeImg(){
             imgClass="img-vert";
         }
 
-        $(".img-feed").append("<div class='entry'><a rel='img-group' title='" + htmlEntities(imgList[i].user) + (imgList[i].message != "" ? ": " : "") + htmlEntities(imgList[i].message) + "' href='" + imgList[i].imgSource + "' class='fancy-img'></a>" + titleTxt + "<img style='" + imgStyle + "' class='" + imgClass + "' src='" + imgList[i].imgSource + "' alt='' onerror='imgError(this)' />" + metaTxt + "</div>");
-        currImg++;
-    }
+        $(".img-feed-"+characters[chrs]).append("<div class='entry'><a rel='img-group' title='" + htmlEntities(imgList[i].user) + (imgList[i].message != "" ? ": " : "") + htmlEntities(imgList[i].message) + "' href='" + imgList[i].imgSource + "' class='fancy-img'></a>" + titleTxt + "<img style='" + imgStyle + "' class='" + imgClass + "' src='" + imgList[i].imgSource + "' alt='' onerror='imgError(this)' />" + metaTxt + "</div>");
+        // currImg++;
+    //}
 
     $(".fancy-img").fancybox({
         openEffect: "elastic",
