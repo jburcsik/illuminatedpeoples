@@ -12,17 +12,18 @@ $accesstokensecret = "XFB5PxurJbyaKyKdOeP9PqM6c3C9YEn1aZFuBjjLiUSoM";
   
 $connection = new TwitterOAuth($consumerkey, $consumersecret, $accesstoken, $accesstokensecret);
  
-$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=%23yellow&count=100&result_type=recent");
+$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=illpeeps&count=100&result_type=recent");
 
 
 // Gets relevant Instagram photos
-$searchTag = "yellow";
+$searchTag = "illpeeps_c";
 $clientId = "69ac1274ef9e4ee7967a6626438b1eee";
 
 $baseUrl = "https://api.instagram.com/v1";
 $queryPath = "/tags/$searchTag/media/recent";
+$instaQueryString = $baseUrl . $queryPath . "?client_id=" . $clientId;
 
-$instaResponse = file_get_contents($baseUrl . $queryPath . "?client_id=" . $clientId);
+$instaResponse = callInstagram($instaQueryString);
 
 
 // Find tweets that contain an image and are not retweets
@@ -30,8 +31,13 @@ $imgTweets = null;
 for ($i = 0; $i < count($tweets->statuses); $i++){
 
 	// Keeping only non-retweeted image-containing tweets
-	if (isset($tweets->statuses[$i]->entities->media) && strpos($tweets->statuses[$i]->text, "RT ") !== 0){
-		$imgTweets->statuses[] = $tweets->statuses[$i];
+
+	if (isset($tweets->statuses[$i]->entities->urls) && (strpos($tweets->statuses[$i]->text, "RT ")===false)){
+		
+                if(strpos($tweets->statuses[$i]->text, $searchTag)!==false)
+                {
+                        $imgTweets->statuses[] = $tweets->statuses[$i];
+                }
 	}
 }
 
@@ -184,11 +190,10 @@ if (file_exists($path)){
 	if (isset($current[1]->data)){
 		echo "Last insta: " . substr($current[1]->data[0]->id, 0, strpos($current[1]->data[0]->id, "_")) . " First insta: " . substr($current[1]->data[count($current[1]->data) - 1]->id, 0, strpos($current[1]->data[count($current[1]->data) - 1]->id, "_")) . "<br />";
 		$instaCount = count($current[1]->data);
-	}
-
 	echo "Instas: " . $instaCount . ", Tweets: " . $tweetCount;
-
-	file_put_contents($path, json_encode($current));
+        }
+	
+        file_put_contents($path, json_encode($current));
 }
 else{
 	// Sorting component arrays
@@ -370,5 +375,18 @@ function sortInsta($a, $b)
 	return (substr($a->id, 0, strpos($a->id, "_")) > substr($b->id, 0, strpos($b->id, "_"))) ? -1 : 1;
 }
 
+function callInstagram($url)
+{
+$ch = curl_init();
+curl_setopt_array($ch, array(
+CURLOPT_URL => $url,
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_SSL_VERIFYPEER => false,
+CURLOPT_SSL_VERIFYHOST => 2
+));
 
+$result = curl_exec($ch);
+curl_close($ch);
+return $result;
+}
 ?>
