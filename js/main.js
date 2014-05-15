@@ -2,6 +2,13 @@ var currImg = 0;
 var imgList = Array();
 var imgListC = Array();
 var imgListH = Array();
+var imgListI = Array();
+var imgListN = Array();
+var imgListA = Array();
+var imgListT = Array();
+var imgListO = Array();
+var imgListW = Array();
+
 //var characters = new Array('c','h'/*,'i','n','a','t','o','w','n2'*/);
 var chrs;
 
@@ -147,7 +154,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListI[imgListI.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -164,7 +171,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListI[imgListI.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -177,7 +184,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListI.sort(timeSort);
 
             // Output images from array items
             
@@ -201,7 +208,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListN[imgListN.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -218,7 +225,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListN[imgListN.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -231,7 +238,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListN.sort(timeSort);
 
             // Output images from array items
             
@@ -255,7 +262,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListA[imgListA.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -272,7 +279,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListA[imgListA.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -285,7 +292,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListA.sort(timeSort);
 
             // Output images from array items
             
@@ -309,7 +316,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListT[imgListT.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -326,7 +333,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListT[imgListT.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -339,7 +346,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListT.sort(timeSort);
 
             // Output images from array items
             
@@ -363,7 +370,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListO[imgListO.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -380,7 +387,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListO[imgListO.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -393,7 +400,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListO.sort(timeSort);
 
             // Output images from array items
             
@@ -417,7 +424,7 @@ $(document).ready(function(){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
                         var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
 
-                        imgList[imgList.length] = {
+                        imgListW[imgListW.length] = {
                             postType: "Twitter",
                             user: tweets.statuses[i].user.screen_name,
                             imgSource: tweets.statuses[i].entities.media[0].media_url,
@@ -434,7 +441,7 @@ $(document).ready(function(){
             if (instas.data != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
+                    imgListW[imgListW.length] = {
                         postType: "Instagram",
                         user: instas.data[i].user.username,
                         imgSource: instas.data[i].images.standard_resolution.url,
@@ -447,7 +454,7 @@ $(document).ready(function(){
                 }
             }
 
-            imgList.sort(timeSort);
+            imgListW.sort(timeSort);
 
             // Output images from array items
             
@@ -456,65 +463,11 @@ $(document).ready(function(){
             // Prepare More bar for click
             $(".more").children().on("click", writeImg);
         });//end getJSON
-        
-        $.getJSON("js/results_n.json", function(data){
-    
-            var tweets = data[0];
-            var instas = data[1];
-
-            console.log(tweets.data);
-            console.log(instas.data);
-
-            if (tweets.statuses != null){
-                // Add Twitter posts to array
-                for (var i = 0; i < tweets.statuses.length; i++){
-                    if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
-                        var tweetTime = new Date(tweets.statuses[i].created_at) / 1000;
-
-                        imgList[imgList.length] = {
-                            postType: "Twitter",
-                            user: tweets.statuses[i].user.screen_name,
-                            imgSource: tweets.statuses[i].entities.media[0].media_url,
-                            favourites: tweets.statuses[i].favorite_count,
-                            imgW: tweets.statuses[i].entities.media[0].sizes.large.w,
-                            imgH: tweets.statuses[i].entities.media[0].sizes.large.h,
-                            message: tweets.statuses[i].text,
-                            created: tweetTime
-                        };
-                    }
-                }
-            }
-
-            if (instas.data != null){
-                // Add Instagram posts to array
-                for (var i = 0; i < instas.data.length; i++){
-                    imgList[imgList.length] = {
-                        postType: "Instagram",
-                        user: instas.data[i].user.username,
-                        imgSource: instas.data[i].images.standard_resolution.url,
-                        likes: instas.data[i].likes.count,
-                        imgW: instas.data[i].images.standard_resolution.width,
-                        imgH: instas.data[i].images.standard_resolution.height,
-                        message: instas.data[i].caption !== null ? instas.data[i].caption.text : "",
-                        created: instas.data[i].created_time
-                    };
-                }
-            }
-
-            imgList.sort(timeSort);
-
-            // Output images from array items
-            
-            doSomething('n2');
-                   
-            // Prepare More bar for click
-            $(".more").children().on("click", writeImg);
-        });//end getJSON
          
    
+setInterval(docRefresh, 1000);
 
-
-});
+}); //end ready function
 // End for loop
 
 function doSomething(letter) {
@@ -525,9 +478,41 @@ function doSomething(letter) {
     
     switch(letter)
     {
-        case 'c': writeImg(imgListC, 'c');
+        case 'c': 
+                  writeImg(imgListC, 'c');
+                  break;
        
-        case 'h': writeImg(imgListH, 'h');
+        case 'h':
+                  writeImg(imgListH, 'h');
+                  break;
+                  
+        case 'i': 
+                  writeImg(imgListI, 'i');
+                  break;
+            
+        case 'n': 
+            
+                writeImg(imgListN, 'n');
+                writeImg(imgListN, 'n2');
+                break;
+                
+        case 'a': 
+                  writeImg(imgListA, 'a');
+                  break;
+                  
+        case 't': 
+                  writeImg(imgListT, 't');
+                  break;
+                  
+        case 'o': 
+                  writeImg(imgListO, 'o');
+                  break;
+                  
+        case 'w': 
+                  writeImg(imgListI, 'w');
+                  break;
+                
+                
     }
    
 }
@@ -593,7 +578,7 @@ function writeImg(imgList, currChar){
         else{
             imgClass="img-vert";
         }
-
+        $(".img-feed-"+currChar).html(''); //clear old content
         $(".img-feed-"+currChar).append("<div class='entry'><a rel='img-group' title='" + htmlEntities(imgList[k].user) + (imgList[k].message != "" ? ": " : "") + htmlEntities(imgList[k].message) + "' href='" + imgList[k].imgSource + "' class='fancy-img'></a>" + titleTxt + "<img style='" + imgStyle + "' class='" + imgClass + "' src='" + imgList[k].imgSource + "' alt='' onerror='imgError(this)' />" + metaTxt + "</div>");
         // currImg++;
     //}
@@ -612,6 +597,22 @@ function writeImg(imgList, currChar){
         $(".more").hide();
         $(".more").children().off("click", writeImg);
     }
+}
+
+function docRefresh()
+{
+    setTimeout(writeImg(imgListC, 'c'), getSleepPeriod());
+    
+}
+
+function getSleepPeriod()
+{
+   var min =1000;
+   var max =3000;
+   var sleepPeriod = (max-min)*Math.random() + min;
+   
+   return sleepPeriod;
+   
 }
 
 // Handles image error

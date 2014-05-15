@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ./php
+php get-posts-c.php get-posts-h.php get-posts-i.php get-posts-n.php get-posts-a.php get-posts-t.php get-posts-o.php get-posts-w.php

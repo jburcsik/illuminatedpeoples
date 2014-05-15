@@ -16,7 +16,7 @@ $tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json?q=ill
 
 
 // Gets relevant Instagram photos
-$searchTag = "illpeeps_h";
+$searchTag = "illpeeps_w";
 $clientId = "69ac1274ef9e4ee7967a6626438b1eee";
 
 $baseUrl = "https://api.instagram.com/v1";
@@ -45,8 +45,8 @@ for ($i = 0; $i < count($tweets->statuses); $i++){
 $results[0] = $imgTweets;
 $results[1] = json_decode($instaResponse);
 
-$path = "../js/results_h.json";
-$backup = "../js/archive_h.json";
+$path = "../js/results_w.json";
+$backup = "../js/archive_w.json";
 
 // If file exists, read and add to array - otherwise, write to new file
 if (file_exists($path)){
