@@ -204,13 +204,20 @@ else{
 		usort($current[1]->data, "sortInsta");
 	}
 
-	// Removing extra items from both arrays
-	while (count($results[0]->statuses) > 50){
+	if($results[0] != null)
+        {
+            while (count($results[0]->statuses) > 50){
 		array_pop($results[0]->statuses);
-	}
-	while (count($results[1]->data) > 50){
+            }
+        }
+        
+        if($results[1] != null)
+        {
+            while (count($results[1]->data) > 50){
 		array_pop($results[1]->data);
-	}
+            }
+        }
+
 
 	file_put_contents($path, json_encode($results));
 }

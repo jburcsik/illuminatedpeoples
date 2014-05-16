@@ -37,10 +37,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+            //console.log(tweets.data);
+            //console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -60,7 +60,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListC[imgListC.length] = {
@@ -91,10 +91,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+       //     console.log(tweets.data);
+       //     console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -114,7 +114,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListH[imgListH.length] = {
@@ -145,10 +145,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+       //     console.log(tweets.data);
+        //    console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -168,7 +168,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListI[imgListI.length] = {
@@ -199,10 +199,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+           // console.log(tweets.data);
+           // console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -222,7 +222,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListN[imgListN.length] = {
@@ -253,10 +253,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+            //console.log(tweets.data);
+           // console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -276,7 +276,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListA[imgListA.length] = {
@@ -307,10 +307,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+    //        console.log(tweets.data);
+    //        console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -330,7 +330,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListT[imgListT.length] = {
@@ -361,10 +361,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+           // console.log(tweets.data);
+           // console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets != null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -384,7 +384,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListO[imgListO.length] = {
@@ -415,10 +415,10 @@ $(document).ready(function(){
             var tweets = data[0];
             var instas = data[1];
 
-            console.log(tweets.data);
-            console.log(instas.data);
+            //console.log(tweets.data);
+           // console.log(instas.data);
 
-            if (tweets.statuses != null){
+            if (tweets !== null){
                 // Add Twitter posts to array
                 for (var i = 0; i < tweets.statuses.length; i++){
                     if (tweets.statuses[i].entities.media && tweets.statuses[i].text.indexOf("RT ") != 0){
@@ -438,7 +438,7 @@ $(document).ready(function(){
                 }
             }
 
-            if (instas.data != null){
+            if (instas != null){
                 // Add Instagram posts to array
                 for (var i = 0; i < instas.data.length; i++){
                     imgListW[imgListW.length] = {
@@ -465,7 +465,7 @@ $(document).ready(function(){
         });//end getJSON
          
    
-setInterval(docRefresh, 1000);
+setInterval(docRefresh, 15000);
 
 }); //end ready function
 // End for loop
@@ -509,7 +509,7 @@ function doSomething(letter) {
                   break;
                   
         case 'w': 
-                  writeImg(imgListI, 'w');
+                  writeImg(imgListW, 'w');
                   break;
                 
                 
@@ -602,13 +602,20 @@ function writeImg(imgList, currChar){
 function docRefresh()
 {
     setTimeout(writeImg(imgListC, 'c'), getSleepPeriod());
+    setTimeout(writeImg(imgListH, 'h'), getSleepPeriod());
+    setTimeout(writeImg(imgListI, 'i'), getSleepPeriod());
+    setTimeout(writeImg(imgListN, 'n'), getSleepPeriod());
+    setTimeout(writeImg(imgListA, 'a'), getSleepPeriod());
+    setTimeout(writeImg(imgListT, 't'), getSleepPeriod());
+    setTimeout(writeImg(imgListO, 'o'), getSleepPeriod());
+    setTimeout(writeImg(imgListW, 'w'), getSleepPeriod());
     
 }
 
 function getSleepPeriod()
 {
-   var min =1000;
-   var max =3000;
+   var min =5000;
+   var max =15000;
    var sleepPeriod = (max-min)*Math.random() + min;
    
    return sleepPeriod;
