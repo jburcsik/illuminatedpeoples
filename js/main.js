@@ -578,8 +578,13 @@ function writeImg(imgList, currChar){
         else{
             imgClass="img-vert";
         }
+
         $(".img-feed-"+currChar).html(''); //clear old content
-        $(".img-feed-"+currChar).append("<div class='entry'><a rel='img-group' title='" + htmlEntities(imgList[k].user) + (imgList[k].message != "" ? ": " : "") + htmlEntities(imgList[k].message) + "' href='" + imgList[k].imgSource + "' class='fancy-img'></a>" + titleTxt + "<img style='" + imgStyle + "' class='" + imgClass + "' src='" + imgList[k].imgSource + "' alt='' onerror='imgError(this)' />" + metaTxt + "</div>");
+        $(".img-feed-"+currChar).append("<div class='entry'><div class='topContent'><img style='" + imgStyle + "' class='" + imgClass + "' src='" + imgList[k].imgSource + "' alt='' onerror='imgError(this)' /></div><div class='bottomContent'>" + titleTxt + metaTxt + "</div>");
+        $('.topContent')
+        var currImgWidth = $(".img-feed-"+currChar).width();
+        $('.topContent').css('height',currImgWidth);
+
         // currImg++;
     //}
 
@@ -614,8 +619,8 @@ function docRefresh()
 
 function getSleepPeriod()
 {
-   var min =5000;
-   var max =15000;
+   var min =2000;
+   var max =7000;
    var sleepPeriod = (max-min)*Math.random() + min;
    
    return sleepPeriod;

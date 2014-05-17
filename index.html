@@ -10,41 +10,57 @@
     <link type="text/css" rel="stylesheet" href="plugins/fancybox/jquery.fancybox.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
     <script src="vendor/foundation/bower_components/modernizr/modernizr.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.tooltip.js"></script>
   </head>
   <body>
 
     <!-- Header -->
     <div class="row" id="head">
       <div class="large-12 columns text-center">
-        <img src="img/ip_logo.png" width="800" />
+        <img src="img/ip_logo.png" width="200" />
+        <div class="nav">
+            <ul>
+              <li><a href="http://blog.illuminatedpeoples.com" target="_blank">Blog</a></li>
+              <li><a href="http://chinatownremixed.ca/6th-annual-chinatown-remixed-jesse-burcsik-is-lighting-up-chinatown/" target="_blank">Press</a></li>
+              <li><a href="http://blog.illuminatedpeoples.com/about-illuminated-peoples" target="_blank">About</a></li>
+            </ul>
+        </div>
       </div>
     </div>
     <!-- / -->
 
     <!-- Coming Soon -->
-    <div class="row" id="comingSoon">
+    <!-- div class="row" id="comingSoon">
       <div class="large-12 columns text-center">
         <p>Illuminated Peoples is an interactive art project where our physical and  virtual worlds come together in an exploration in urban community building
         <br />
         The project will launch at 8:30pm Saturday May 17th at China Town Remixed</p>
 
       </div>
-    </div>
+    </div -->
     <!-- / -->
 
     <!-- Images -->
     <div class="row fullWidth" id="images">
       <div class="large-12 columns">
         <!-- Image cards will be generated here -->
-        <div class="img-feed-c"></div>
-        <div class="img-feed-h"></div>
-        <div class="img-feed-i"></div>
-        <div class="img-feed-n"></div>
-        <div class="img-feed-a"></div>
-        <div class="img-feed-t"></div>
-        <div class="img-feed-o"></div>
-        <div class="img-feed-w"></div>
-        <div class="img-feed-n2"></div>
+        
+        <div class="chinaRow clearfix">
+          <div class="postWrap img-feed-c"></div>
+          <div class="postWrap img-feed-h"></div>
+          <div class="postWrap img-feed-i"></div>
+          <div class="postWrap img-feed-n"></div>
+          <div class="postWrap img-feed-a"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="townRow clearfix">
+          <div class="postWrap img-feed-t"></div>
+          <div class="postWrap img-feed-o"></div>
+          <div class="postWrap img-feed-w"></div>
+          <div class="postWrap img-feed-n2"></div>
+        </div>
       </div>
     </div>
     <!-- / -->

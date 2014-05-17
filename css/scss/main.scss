@@ -5,7 +5,8 @@
 @import
    "foundation/components/block-grid",
    "foundation/components/grid",
-   "foundation/components/type";
+   "foundation/components/type",
+   "foundation/components/tooltips";
    // Notice there is no comma on the last line
 
 //   "foundation/components/inline-lists",
@@ -45,6 +46,27 @@ body{
 
 #head{
 	padding-top: 20px;
+	padding-bottom: 20px;
+
+	.nav{
+
+		ul{
+
+		float: right;
+
+		li{
+			float: right;
+			list-style: none;
+
+			a{
+				padding: 10px;
+				color: #fff;
+			}
+		}
+
+		}
+
+	}
 }
 
 #comingSoon{
@@ -55,11 +77,18 @@ body{
 
 	background: #313131;
 
-	.img-feed{	
-		min-height: 500px;
+	.postWrap{	
+		width: 20%;
 		white-space: nowrap;
+		float: left;
 
-		
+	.topContent{
+		overflow: hidden;
+	}
+
+	.bottomContent{
+		display: none;
+	}
 
 	}
 }
