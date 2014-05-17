@@ -1,11 +1,10 @@
 #!/bin/bash
 
-cd ./php
-php get-posts-c.php &
-php get-posts-h.php &
-php get-posts-i.php & 
-php get-posts-n.php &
-php get-posts-a.php &
-php get-posts-t.php &
-php get-posts-o.php &
-php get-posts-w.php
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-c.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-h.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-i.php & 
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-n.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-a.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-t.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-o.php &
+php /home/jburcsik/public_html/illuminatedpeoples.com/get-posts-w.php

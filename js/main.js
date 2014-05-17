@@ -619,10 +619,10 @@ function docRefresh()
 
 function getSleepPeriod()
 {
-   var min =2000;
-   var max =7000;
+   var min =500;
+   var max =1500;
    var sleepPeriod = (max-min)*Math.random() + min;
-   
+   console.log(sleepPeriod);
    return sleepPeriod;
    
 }
