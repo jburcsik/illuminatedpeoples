@@ -465,7 +465,7 @@ $(document).ready(function(){
         });//end getJSON
          
    
-setInterval(docRefresh, 15000);
+setInterval(docRefresh, 5000);
 
 }); //end ready function
 // End for loop
@@ -619,8 +619,8 @@ function docRefresh()
 
 function getSleepPeriod()
 {
-   var min =500;
-   var max =1500;
+   var min =2000;
+   var max =5000;
    var sleepPeriod = (max-min)*Math.random() + min;
    console.log(sleepPeriod);
    return sleepPeriod;
